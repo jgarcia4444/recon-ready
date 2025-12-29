@@ -12,3 +12,80 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum WorkoutType {
+  RUN
+  SWIM
+  STRENGTH
+  RUCK
+}
+
+enum SwimStroke {
+  FREESTYLE
+  COMBAT_SIDE
+  BREAST
+}
+
+model User {
+  id String @id @default(cuid())
+  email String @unique
+  name String?
+  workouts Workout[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Workout {
+  id        String   @id @default(cuid())
+  userId    String
+  type      WorkoutType
+  notes     String?
+  date      DateTime @default(now())
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id])
+
+  run       RunMetric?
+  swim      SwimMetric?
+  strength  StrengthMetric?
+  ruck      RuckMetric?
+}
+
+model RunMetric {
+  id          String   @id @default(cuid())
+  workoutId  String   @unique
+  distanceKm Float
+  timeSec    Int
+
+  workout    Workout  @relation(fields: [workoutId], references: [id])
+}
+
+model SwimMetric {
+  id          String   @id @default(cuid())
+  workoutId  String   @unique
+  distanceM  Int
+  timeSec    Int
+  stroke     SwimStroke?
+
+  workout    Workout  @relation(fields: [workoutId], references: [id])
+}
+
+model StrengthMetric {
+  id          String   @id @default(cuid())
+  workoutId  String   @unique
+  pullUps    Int?
+  pushUps    Int?
+  sitUps     Int?
+
+  workout    Workout  @relation(fields: [workoutId], references: [id])
+}
+
+model RuckMetric {
+  id          String   @id @default(cuid())
+  workoutId  String   @unique
+  distanceKm Float
+  weightKg   Float
+  timeSec    Int
+
+  workout    Workout  @relation(fields: [workoutId], references: [id])
+}
