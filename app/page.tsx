@@ -1,25 +1,23 @@
-import { createWorkoutAction } from "./workouts/actions";
+import { createWorkout } from "@/lib/workouts/actions"
 
 export default function HomePage() {
+  async function logTestWorkout() {
+    "use server"
+
+    await createWorkout({
+      userId: "1",
+      type: "RUN",
+      run: {
+        distanceKm: 5,
+        timeSec: 1500,
+      },
+      notes: "Baseline run",
+    })
+  }
 
   return (
-    <form action={createWorkoutAction} className="space-y-4 p-8">
-      <select name="type" className="border p-2">
-        <option value="RUN">Run</option>
-        <option value="SWIM">Swim</option>
-        <option value="STRENGTH">Strength</option>
-        <option value="RUCK">Ruck</option>
-      </select>
-
-      <input
-        name="notes"
-        placeholder="Notes (optional)"
-        className="border p-2"
-      />
-
-      <button className="bg-black text-white px-4 py-2">
-        Log Workout
-      </button>
+    <form action={logTestWorkout}>
+      <button className="border-white border-2 p-2 m-2 rounded font-bold hover:bg-white hover:text-black transition-colors hover:cursor-pointer" type="submit">Log Test Workout</button>
     </form>
-  );
+  )
 }
