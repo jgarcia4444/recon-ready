@@ -64,3 +64,18 @@ export async function createWorkout(input: CreateWorkoutInput) {
     }
   }) 
 }
+
+
+export async function getWorkouts(userId: string) {
+  return prisma.workout.findMany({
+    where: {
+      userId,
+    },
+    include: {
+      run: true,
+      swim: true,
+      strength: true,
+      ruck: true,
+    },
+  })
+}
