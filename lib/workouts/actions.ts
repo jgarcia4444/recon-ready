@@ -77,5 +77,8 @@ export async function getWorkouts(userId: string) {
       strength: true,
       ruck: true,
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   })
 }
