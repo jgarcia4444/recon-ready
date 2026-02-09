@@ -4,7 +4,7 @@ export default function DashboardPage() {
 
 
   return (
-    <div className="bg-(--primary-bg)">
+    <div className="">
       <PageTitle title="Dashboard" />
       <div className="flex flex-col w-full mt-4">
         {/* <UserInfoCard /> */}
