@@ -4,9 +4,9 @@ export default function DashboardPage() {
 
 
   return (
-    <div>
+    <div className="bg-(--primary-bg)">
       <PageTitle title="Dashboard" />
-      <div className="flex flex-col w-full bg-gray-300/10 rounded p-2 mt-2">
+      <div className="flex flex-col w-full mt-4">
         {/* <UserInfoCard /> */}
         <UserWorkouts />
       </div>
