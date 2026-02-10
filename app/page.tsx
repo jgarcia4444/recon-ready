@@ -6,12 +6,13 @@ export default function HomePage() {
 
     await createWorkout({
       userId: "1",
-      type: "RUN",
-      run: {
+      type: "RUCK",
+      ruck: {
         distanceKm: 5,
+        weightKg: 20,
         timeSec: 1500,
       },
-      notes: "Baseline run",
+      notes: "Baseline ruck",
     })
   }
 

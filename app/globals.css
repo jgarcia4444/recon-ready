@@ -8,6 +8,14 @@
   --subtle-border: #222833;
   --primary-text: #E6EAF0;
   --secondary-text: #9AA4B2;
+  --run: #2E7D5B;
+  --run-hover: #3FA676;
+  --ruck: #3A5F8A;
+  --ruck-hover: #4C78B8;
+  --strength: #B06A2B;
+  --strength-hover: #D8843A;
+  --swim: #4B4E91;
+  --swim-hover: #6C70D9;
 }
 
 @theme inline {
@@ -20,6 +28,14 @@
   --color-subtle-border: var(--subtle-border);
   --color-primary-text: var(--primary-text);
   --color-secondary-text: var(--secondary-text);
+  --color-run: var(--run);
+  --color-run-hover: var(--run-hover);
+  --color-ruck: var(--ruck);
+  --color-ruck-hover: var(--ruck-hover);
+  --color-strength: var(--strength);
+  --color-strength-hover: var(--strength-hover);
+  --color-swim: var(--swim);
+  --color-swim-hover: var(--swim-hover);
 }
 
 @media (prefers-color-scheme: dark) {
